@@ -187,10 +187,10 @@ function renderProjects(data) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const [settings, skills, education, projects] = await Promise.all([
-    loadJSON("content/settings.json"),
-    loadJSON("content/skills.json"),
-    loadJSON("content/education.json"),
-    loadJSON("content/projects.json"),
+    loadJSON("settings.json"),
+    loadJSON("skills.json"),
+    loadJSON("education.json"),
+    loadJSON("projects.json"),
   ]);
 
   renderPersonal(settings);

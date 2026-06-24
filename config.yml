@@ -6,8 +6,8 @@ backend:
 # GitHub repo automatically, which triggers Netlify to rebuild the live site.
 # You will never see this file again after the one-time setup.
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+media_folder: "uploads"
+public_folder: "/uploads"
 
 publish_mode: simple
 
@@ -15,7 +15,7 @@ collections:
   - name: "settings"
     label: "Site Settings"
     files:
-      - file: "content/settings.json"
+      - file: "settings.json"
         label: "Personal Info"
         name: "settings"
         fields:
@@ -45,7 +45,7 @@ collections:
   - name: "skills"
     label: "Skills"
     files:
-      - file: "content/skills.json"
+      - file: "skills.json"
         label: "Skill Groups"
         name: "skills"
         fields:
@@ -62,7 +62,7 @@ collections:
   - name: "education"
     label: "Education"
     files:
-      - file: "content/education.json"
+      - file: "education.json"
         label: "Education & Achievements"
         name: "education"
         fields:
@@ -86,7 +86,7 @@ collections:
   - name: "projects"
     label: "Projects"
     files:
-      - file: "content/projects.json"
+      - file: "projects.json"
         label: "All Projects"
         name: "projects"
         fields:

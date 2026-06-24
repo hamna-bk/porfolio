@@ -1,14 +1,177 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HBK — Content Dashboard</title>
-  <!-- This page loads your private editing dashboard. -->
-  <!-- You should never need to open or edit this file. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBK — Portfolio</title>
+<meta name="description" content="Portfolio of HBK — CS student building in embedded systems, IoT, and robotics.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HBK — Portfolio">
+<meta property="og:description" content="CS student building in embedded systems, IoT, and robotics.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0E14'/%3E%3Cpolyline points='4,18 11,18 14,8 18,24 22,18 28,18' fill='none' stroke='%23D98C3D' stroke-width='2.5'/%3E%3C/svg%3E">
+
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- highlight.js theme (for code-snippet project cards) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader" aria-hidden="true">
+    <svg id="preloader-trace" viewBox="0 0 200 60" width="180">
+      <polyline points="0,30 40,30 55,10 70,50 85,30 200,30" fill="none" stroke="var(--accent-copper)" stroke-width="2"/>
+    </svg>
+    <span id="preloader-text">HBK</span>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar">
+    <nav class="nav-inner">
+      <a href="#top" class="nav-logo">HBK<span class="dot"></span></a>
+
+      <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div id="nav-links">
+        <a href="#about" class="nav-link">/about</a>
+        <a href="#skills" class="nav-link">/skills</a>
+        <a href="#projects" class="nav-link">/projects</a>
+        <a href="#education" class="nav-link">/education</a>
+        <a href="#contact" class="nav-link">/contact</a>
+        <button id="theme-toggle" aria-label="Toggle light and dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="currentColor"/></svg>
+        </button>
+        <a id="nav-cv" href="#" download class="btn btn-ghost-small">CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section id="hero">
+      <canvas id="signal-canvas" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="eyebrow" data-reveal>// signal locked</p>
+        <h1 class="hero-name" data-reveal>
+          <span id="hero-name-text">HBK</span>
+        </h1>
+        <p class="hero-tagline" data-reveal id="hero-tagline">CS Student · Embedded Systems &amp; IoT · Robotics</p>
+        <div class="hero-cta" data-reveal>
+          <a href="#projects" class="btn btn-primary">View projects</a>
+          <a id="hero-cv" href="#" download class="btn btn-outline">Download CV</a>
+        </div>
+        <div class="hero-social" data-reveal id="hero-social"><!-- filled by JS --></div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <p class="eyebrow" data-reveal>/about</p>
+      <div class="about-grid">
+        <div class="about-text" id="about-bio" data-reveal><!-- filled by JS --></div>
+        <div class="about-avatar" data-reveal>
+          <div class="avatar-frame" id="avatar-frame"></div>
+        </div>
+      </div>
+      <div class="stats-grid" id="stats-grid" data-reveal><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section">
+      <p class="eyebrow" data-reveal>/skills</p>
+      <h2 class="section-title" data-reveal>What I build with</h2>
+      <div class="skills-grid" id="skills-grid" data-reveal><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section">
+      <p class="eyebrow" data-reveal>/projects</p>
+      <h2 class="section-title" data-reveal>Selected work</h2>
+
+      <div class="filter-bar" id="filter-bar" data-reveal>
+        <button class="filter-btn is-active" data-filter="All">All</button>
+        <!-- other category buttons injected by JS -->
+      </div>
+
+      <div class="projects-grid" id="projects-grid"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education" class="section">
+      <p class="eyebrow" data-reveal>/education</p>
+      <h2 class="section-title" data-reveal>Timeline</h2>
+      <div class="timeline" id="timeline"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <p class="eyebrow" data-reveal>/contact</p>
+      <h2 class="section-title" data-reveal>Let's build something</h2>
+      <p class="contact-sub" data-reveal>The fastest way to reach me is email — socials below if you'd rather start there.</p>
+      <div class="contact-block" data-reveal>
+        <a id="contact-email" class="contact-email" href="mailto:you@example.com">you@example.com</a>
+        <div class="contact-social" id="contact-social"><!-- filled by JS --></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>&copy; <span id="footer-year"></span> <span id="footer-name">HBK</span>. Built with intent.</p>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+  </footer>
+
+  <!-- ============ PROJECT MODAL ============ -->
+  <div id="project-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      <div id="modal-content"><!-- filled by JS --></div>
+    </div>
+  </div>
+
+  <!-- Print fallback message (see css for @media print rules) -->
+  <div id="print-message">
+    <p>This portfolio is best viewed live — visit hbk.com to see it in full.</p>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="render.js"></script>
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Handles the one-time "confirm your account" email link from Netlify
+    // Identity, so it lands you on the dashboard instead of a blank page.
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin.html";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
