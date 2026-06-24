@@ -1,0 +1,23 @@
+{
+  "fullName": "Your Full Name",
+  "displayName": "HBK",
+  "tagline": "CS Student · Embedded Systems & IoT · Robotics",
+  "bio": [
+    { "text": "I'm a Computer Science student who likes building things that exist in the physical world, not just on a screen — circuits, control loops, and the firmware that holds them together." },
+    { "text": "Right now I'm deep in embedded systems, IoT, and robotics coursework, and shaping a final year project at the intersection of all three." }
+  ],
+  "email": "you@example.com",
+  "phone": "",
+  "location": "Lahore, Pakistan",
+  "resumeEnabled": true,
+  "resumeFile": "",
+  "githubUrl": "https://github.com/yourusername",
+  "linkedinUrl": "https://linkedin.com/in/yourusername",
+  "avatarImage": "",
+  "stats": [
+    { "value": 3, "suffix": "+", "label": "Years coding" },
+    { "value": 6, "suffix": "", "label": "Projects built" },
+    { "value": 4, "suffix": "", "label": "IoT protocols studied" },
+    { "value": 1, "suffix": "", "label": "FYP in progress" }
+  ]
+}

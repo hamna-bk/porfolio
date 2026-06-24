@@ -1,0 +1,121 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# This is what makes editing "no-code": every save here commits to your
+# GitHub repo automatically, which triggers Netlify to rebuild the live site.
+# You will never see this file again after the one-time setup.
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings.json"
+        label: "Personal Info"
+        name: "settings"
+        fields:
+          - { label: "Full Name", name: "fullName", widget: "string" }
+          - { label: "Display Name (shown in nav + hero)", name: "displayName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - label: "Bio (one paragraph per line)"
+            name: "bio"
+            widget: "list"
+            field: { label: "Paragraph", name: "text", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Show 'Download CV' button?", name: "resumeEnabled", widget: "boolean", default: true }
+          - { label: "Resume PDF", name: "resumeFile", widget: "file", required: false }
+          - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string", required: false }
+          - { label: "Profile Photo", name: "avatarImage", widget: "image", required: false }
+          - label: "Stats (the 4 counters under About)"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "value", widget: "number" }
+              - { label: "Suffix (e.g. +)", name: "suffix", widget: "string", required: false }
+              - { label: "Label", name: "label", widget: "string" }
+
+  - name: "skills"
+    label: "Skills"
+    files:
+      - file: "content/skills.json"
+        label: "Skill Groups"
+        name: "skills"
+        fields:
+          - label: "Skill Categories"
+            name: "skillGroups"
+            widget: "list"
+            fields:
+              - { label: "Category Name", name: "category", widget: "string" }
+              - label: "Skills in this category"
+                name: "items"
+                widget: "list"
+                field: { label: "Skill", name: "item", widget: "string" }
+
+  - name: "education"
+    label: "Education"
+    files:
+      - file: "content/education.json"
+        label: "Education & Achievements"
+        name: "education"
+        fields:
+          - label: "Education entries"
+            name: "education"
+            widget: "list"
+            fields:
+              - { label: "Degree", name: "degree", widget: "string" }
+              - { label: "School", name: "school", widget: "string" }
+              - { label: "Years (e.g. 2022 — 2026)", name: "years", widget: "string" }
+              - { label: "Details", name: "details", widget: "text", required: false }
+          - label: "Achievements / Certifications"
+            name: "achievements"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Note", name: "note", widget: "string", required: false }
+
+  - name: "projects"
+    label: "Projects"
+    files:
+      - file: "content/projects.json"
+        label: "All Projects"
+        name: "projects"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            summary: "{{name}} — {{category}}"
+            fields:
+              - { label: "Project Name", name: "name", widget: "string" }
+              - { label: "One-line tagline", name: "tagline", widget: "string" }
+              - { label: "Show as large featured card?", name: "featured", widget: "boolean", default: false }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["IoT", "Embedded", "Robotics", "FYP", "Coursework"]
+              - label: "Tech stack"
+                name: "stack"
+                widget: "list"
+                field: { label: "Technology", name: "tech", widget: "string" }
+              - { label: "Full description", name: "description", widget: "text" }
+              - label: "Card style"
+                name: "cardType"
+                widget: "select"
+                options: ["image", "code"]
+                hint: "Choose 'image' for hardware/photo projects, 'code' for projects best shown as a snippet."
+              - { label: "Project Image (if card style = image)", name: "image", widget: "image", required: false }
+              - { label: "Code language (if card style = code)", name: "codeLanguage", widget: "string", required: false, hint: "e.g. cpp, python, javascript" }
+              - { label: "Code filename label", name: "codeFilename", widget: "string", required: false }
+              - { label: "Code snippet (if card style = code)", name: "codeSnippet", widget: "code", required: false }
+              - { label: "GitHub link", name: "githubLink", widget: "string", required: false }
+              - { label: "Live demo link", name: "demoLink", widget: "string", required: false }
+              - { label: "Video link", name: "videoLink", widget: "string", required: false }

@@ -1,0 +1,11 @@
+{
+  "education": [
+    {
+      "degree": "B.S. Computer Science",
+      "school": "Your University Name",
+      "years": "2022 — 2026",
+      "details": "Focus on embedded systems, IoT, and robotics. Relevant coursework: Linear Systems & Signals, Introduction to IoT, Control Systems."
+    }
+  ],
+  "achievements": []
+}

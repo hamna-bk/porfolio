@@ -1,0 +1,43 @@
+{
+  "skillGroups": [
+    {
+      "category": "Embedded & IoT",
+      "items": [
+        { "item": "ESP32" },
+        { "item": "Arduino" },
+        { "item": "C" },
+        { "item": "C++" },
+        { "item": "RTOS basics" },
+        { "item": "6LoWPAN / RPL" },
+        { "item": "BLE" },
+        { "item": "LoRaWAN" }
+      ]
+    },
+    {
+      "category": "Programming & Tools",
+      "items": [
+        { "item": "Python" },
+        { "item": "MATLAB" },
+        { "item": "Git" },
+        { "item": "Linux" }
+      ]
+    },
+    {
+      "category": "Signals & Control",
+      "items": [
+        { "item": "PID Control" },
+        { "item": "Fourier Analysis" },
+        { "item": "Z-Transforms" },
+        { "item": "Simulink / simulators" }
+      ]
+    },
+    {
+      "category": "Robotics",
+      "items": [
+        { "item": "Closed-loop control" },
+        { "item": "Sensor fusion (basic)" },
+        { "item": "Motor drivers" }
+      ]
+    }
+  ]
+}

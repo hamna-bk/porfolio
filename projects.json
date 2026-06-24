@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "name": "ChronoMed",
+      "tagline": "A circadian-aware autonomous pill dispenser",
+      "featured": true,
+      "category": "FYP",
+      "stack": [{ "tech": "ESP32" }, { "tech": "RTC module" }, { "tech": "Stepper motor" }, { "tech": "Python (scheduling logic)" }],
+      "description": "PLACEHOLDER — replace with your real project story once scoped. Problem: medication adherence drops when dosing schedules ignore a patient's natural circadian rhythm. Approach: a dispenser that times doses against a circadian model rather than a fixed clock, with a companion app for caregivers. Outcome: pending — this is a candidate FYP concept, not yet built.",
+      "cardType": "image",
+      "image": "",
+      "codeLanguage": "",
+      "codeFilename": "",
+      "codeSnippet": "",
+      "githubLink": "",
+      "demoLink": "",
+      "videoLink": ""
+    },
+    {
+      "name": "Closed-Loop PID Controller for a Mobile Robot",
+      "tagline": "Course project: line-following robot with tuned PID control",
+      "featured": true,
+      "category": "Embedded",
+      "stack": [{ "tech": "ESP32 / Arduino" }, { "tech": "C++" }, { "tech": "PID control theory" }],
+      "description": "PLACEHOLDER — replace with your real write-up. Problem: an open-loop motor controller drifts off-path under load variation. Approach: closed-loop PID using encoder/line-sensor feedback, tuned via step-response testing. Outcome: pending — update once you've built and tested it.",
+      "cardType": "code",
+      "image": "",
+      "codeLanguage": "cpp",
+      "codeFilename": "pid_controller.ino",
+      "codeSnippet": "double computePID(double setpoint, double measured) {\n  double error = setpoint - measured;\n  integral += error * dt;\n  double derivative = (error - lastError) / dt;\n\n  double output = (Kp * error) + (Ki * integral) + (Kd * derivative);\n\n  lastError = error;\n  return constrain(output, -255, 255);\n}",
+      "githubLink": "",
+      "demoLink": "",
+      "videoLink": ""
+    },
+    {
+      "name": "AuroraNet",
+      "tagline": "Federated learning for structural health monitoring",
+      "featured": false,
+      "category": "FYP",
+      "stack": [{ "tech": "IoT sensors" }, { "tech": "Federated learning" }, { "tech": "Edge inference" }],
+      "description": "PLACEHOLDER — FYP concept exploring federated learning across distributed structural sensors so raw data never leaves the edge device. Replace with real scope once finalized.",
+      "cardType": "image",
+      "image": "",
+      "codeLanguage": "",
+      "codeFilename": "",
+      "codeSnippet": "",
+      "githubLink": "",
+      "demoLink": "",
+      "videoLink": ""
+    },
+    {
+      "name": "Fourier Series Signal Visualizer",
+      "tagline": "Coursework tool: live waveform decomposition",
+      "featured": false,
+      "category": "Coursework",
+      "stack": [{ "tech": "JavaScript" }, { "tech": "Canvas API" }, { "tech": "Fourier series" }],
+      "description": "PLACEHOLDER — a small visual tool built while studying Linear Systems & Signals, showing how a square/sawtooth wave is built from summed sine harmonics in real time. Swap in your real repo link once it's hosted.",
+      "cardType": "code",
+      "image": "",
+      "codeLanguage": "javascript",
+      "codeFilename": "fourier.js",
+      "codeSnippet": "function squareWaveApprox(t, harmonics) {\n  let sum = 0;\n  for (let n = 1; n <= harmonics; n += 2) {\n    sum += Math.sin(n * t) / n;\n  }\n  return (4 / Math.PI) * sum;\n}",
+      "githubLink": "",
+      "demoLink": "",
+      "videoLink": ""
+    }
+  ]
+}
